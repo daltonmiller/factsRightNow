@@ -1,5 +1,10 @@
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300);
 .App {
   text-align: center;
+  display:flex;
+  justify-content: center;
+  background-color: lightgrey;
 }
 
 .App-logo {
@@ -28,11 +33,154 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.QuestionCard {
+  width: 80%;
+  margin: 1%;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+}
+.questionTop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ display:flex;
+ justify-content: flex-start;
+}
+.tanong {
+  width: 80%;
+}
+.buttons{
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.vote{
+  width: 25px;
+  height: 25px;
+  border: 3px solid black;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+.vote:hover{
+  width: 30px;
+  height: 30px;
+}
+
+.questions {
+  width: 70%;
+  background-color: white;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+  border-radius: 10px;
+}
+.tabs {
+  margin: 10px;
+}
+
+.answer {
+  font-size: 1rem;
+  border: 2px solid black;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+
+}
+
+.description {
+
+  margin: 5%;
+}
+.votes{
+  color: red
+}
+
+.tab-group {
+	margin: 0 auto;
+	max-width: 40em;
+	width: 100%;
+}
+
+/*
+	Individual tabs are 100% of wrapper and position 
+	themselves relative to previous tab
+
+*/
+
+.tab {
+	position: relative;
+	width: 100%;
+}
+
+/*
+	Radion elements are hidden so they
+	will be positioned absolutely, set to top 
+	left corner and positioned out of way
+*/
+
+.tab input {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -999;
+}
+
+/*
+	Input label will toggle radio buttons 
+	when label is clicked it will reveal its
+	adjacent accordion content
+
+*/
+
+
+.tab label {
+	background: #72d2c6;
+	color: #fff;
+	display: block; /* makes Label span full width */
+	font-weight: bold;
+	line-height: 3; /* increases clicking area */
+	padding-left: .5em;
+	margin-bottom: .5em;
+	/* Adds transiton to letter spacing on hover*/
+	transition: letter-spacing .55s;
+}
+
+/* 
+	Focus and Hover styles
+*/
+
+.tab input:focus + label,
+.tab label:hover {
+	background: #85d8ce;
+	letter-spacing: 1px;
+}
+
+.tab-content {
+	/* hides the content of the divs */
+	max-height: 0;
+	overflow: hidden;
+	/* slide transition for when tab is opened 
+	   prevents jerky content */
+	transition: all .35s;
+}
+
+.tab-content p {
+	margin: 1em;
+}
+
+
+.tab input:checked ~ .tab-content {
+	/*uses general sibling combinator to 
+      open tabs when radio inputs are selected */
+	max-height: 6.25em;
+	/* sets height to largest accordion tab */
 }
