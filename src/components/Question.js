@@ -3,31 +3,40 @@ import { useParams } from 'react-router-dom'
 import '../App.css'
 import axios from 'axios'
 const Question = ({question, id, answer, description, vote}) => {
-    const [votes, setVotes] = useState([])
+    const [questionVotes, setVotes] = useState(vote)
+    const [userVote, setUserVote] = useState(false)
+    // let property = document.getElementsByClassName('answer')
   
         if (answer === 1){
             answer = 'yes'
+            // setColor()
+            // property.style.color = 'green'
+        }
+        else if(answer === null){
+            answer = '?'
         }else{
             answer = 'no'
         }
 
-        
-
-
     const upVote = () => {
-        axios.put(`https://facts-right-now.herokuapp.com/questions/${id}`)
+        let plusOne = questionVotes
+        axios.put(`http://localhost:5800/questions/${id}`, {
+            votes: plusOne++
+        })
         .then(res => {
-            // console.log('request', res)
-            setVotes(res.data.votes)
+            console.log('request', res)
+            
+            setVotes((res.data.votes) + 1)
+            
            
         })
         .catch(err => {
             console.log('error', err)
         })
     }
-    const upVoteColor = (className) => {
-        document.getElementsByClassName(className).border = "3px solid green"
-        
+
+    const toggle = () => {
+        setUserVote(true) 
     }
 
 
@@ -39,14 +48,23 @@ const Question = ({question, id, answer, description, vote}) => {
             <div className="questionTop">
              <div className="tanong">
             <p>
-            question: {question}
+            {question}
             </p>  
             </div>
             <div className="buttons">
-            <h5 className="answer">
+            <h5 style={{ border: answer === 'yes' ? "3px solid green" : '3px solid red'}} className="answer">
             {answer}
             </h5>
-            <img className="vote" src="https://www.flaticon.com/svg/static/icons/svg/20/20901.svg" onClick={upVote}/>
+            {/* <form>
+            <input
+            type="button"
+            id="button"
+            value="button"
+            style="color:black"
+            onClick="setColor('button', 'green')" />
+            </form> */}
+            <h5 className="vote" style={{border: userVote === true ? "3px solid green" : "3px solid black"}} onClick={upVote, toggle}>⬆</h5>
+            {/* <img  id="button" value="button"  className="vote" src="https://www.flaticon.com/svg/static/icons/svg/20/20901.svg" onClick={upVote}/> */}
              
             </div>
             </div>
@@ -54,7 +72,7 @@ const Question = ({question, id, answer, description, vote}) => {
             description: {description}
             </p>
             <p className="votes">
-            votes: {vote}
+            votes: {questionVotes}
             </p>
         </div>
     ) 
