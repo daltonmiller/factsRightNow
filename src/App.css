@@ -63,6 +63,12 @@
   margin-right: 5px;
 }
 
+.upVoteButton{
+  cursor: pointer;
+  background-color: none;
+  z-index: 2;
+}
+
 .vote{
   font-size: 1.2rem;
   width: 25px;

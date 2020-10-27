@@ -18,9 +18,13 @@ const Question = ({question, id, answer, description, vote}) => {
             answer = 'no'
         }
 
-    const upVote = () => {
+    const upVote = (thisId) => {
+        setUserVote(true)
+        if(!localStorage.getItem(`${thisId}`)) {
+            localStorage.setItem(`${thisId}`, true);
+        }
         let plusOne = questionVotes
-        axios.put(`http://localhost:5800/questions/${id}`, {
+        axios.put(`http://localhost:5800/questions/upvote/${thisId}`, {
             votes: plusOne++
         })
         .then(res => {
@@ -34,11 +38,6 @@ const Question = ({question, id, answer, description, vote}) => {
             console.log('error', err)
         })
     }
-
-    const toggle = () => {
-        setUserVote(true) 
-    }
-
 
     
     return (
@@ -63,7 +62,7 @@ const Question = ({question, id, answer, description, vote}) => {
             style="color:black"
             onClick="setColor('button', 'green')" />
             </form> */}
-            <img className="vote" style={{border: userVote === true ? "3px solid green" : "3px solid black"}} onClick={upVote, toggle} src="https://img.icons8.com/ios-filled/2x/up.png"  />
+            <button className="vote" onClick={() => upVote(id)} disabled={localStorage.getItem(`${id}`)}><img style={{border: localStorage.getItem(`${id}`) || userVote ? "3px solid green" : "3px solid black"}}  src="https://img.icons8.com/ios-filled/2x/up.png"  /></button>
             {/* <img  id="button" value="button"  className="vote" src="https://www.flaticon.com/svg/static/icons/svg/20/20901.svg" onClick={upVote}/> */}
              
             </div>
@@ -71,9 +70,9 @@ const Question = ({question, id, answer, description, vote}) => {
             <p className="description">
             description: {description}
             </p>
-            {/* <p className="votes">
+            <p className="votes">
             votes: {questionVotes}
-            </p> */}
+            </p>
         </div>
     ) 
 }
