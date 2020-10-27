@@ -99,7 +99,7 @@ const formSubmit = (e) => {
                         type="text"
                         name="askedQuestions"
                         id="askedQuestions"
-                        placeholder="Submit a question..."
+                        placeholder="   Submit a question..."
                         value={formState.askedQuestions}
                         onChange={inputChange}
                         />

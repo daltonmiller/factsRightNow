@@ -40,6 +40,27 @@
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   text-align: left;
 }
+.QuestionCardModal {
+  width: 35%;
+  height: auto;
+  margin: 1%;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  text-align: left;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  right: auto;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  outline: none;
+}
+.QuestionCardModal button {
+  border: none;
+  background: none;
+  display: flex;
+  justify-content: flex-end;
+}
 .questionTop {
   display: flex;
   justify-content: center;
@@ -86,6 +107,9 @@ background: none;
 .vote:hover{
  border-color:  green;
 color: green
+}
+.vote img {
+  width: 25px;
 }
 
 .questions {
@@ -157,6 +181,16 @@ justify-content: flex-start;
   .QuestionCard p {
     font-size: 12px;
   }
+}
+
+@media (max-width: 1350px) and (min-width: 800px) {
+  .input{
+    width: 220px;
+  }
+  .QuestionCard p{
+    font-size: 12px;
+  }
+
 }
 
 .inputBox{
