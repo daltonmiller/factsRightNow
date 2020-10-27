@@ -80,6 +80,8 @@ display: flex;
 justify-content: center;
 align-items: center;
 padding: 2px;
+/* border: none; */
+background: none;
 }
 .vote:hover{
  border-color:  green;
@@ -177,4 +179,5 @@ align-items: center;
 }
 .inputButton {
   border: none;
+  background: none;
 }
