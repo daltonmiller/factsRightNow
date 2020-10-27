@@ -71,9 +71,9 @@ const Question = ({question, id, answer, description, vote}) => {
             <p className="description">
             description: {description}
             </p>
-            <p className="votes">
+            {/* <p className="votes">
             votes: {questionVotes}
-            </p>
+            </p> */}
         </div>
     ) 
 }

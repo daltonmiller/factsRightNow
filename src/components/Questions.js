@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import Question from './Question'
 import * as yup from 'yup'
-import { ToastsContainer, ToastsStore } from 'react-toasts';
+import { ToastsContainer, ToastsStore, ToastsContainerPosition } from 'react-toasts';
 const formSchema = yup.object().shape({
     askedQuestions: yup.string()
     .min(10, "")
@@ -76,6 +76,7 @@ const formSubmit = (e) => {
         setFormState({
             askedQuestions: ""
         })
+        ToastsStore.success("Question Submitted")
     }
         )
     
@@ -103,6 +104,9 @@ const formSubmit = (e) => {
                         onChange={inputChange}
                         />
                         <img onClick={formSubmit} src="https://www.flaticon.com/svg/static/icons/svg/32/32213.svg"/>
+                        {/* <Button disabled={isDisabled} onClick={() => ToastsStore.success("Question Submitted")}>Submit</Button> */}
+                <ToastsContainer position={ToastsContainerPosition.TOP_CENTER} store={ToastsStore} />
+                
                         
                         {errorState.askedQuestions ? <p>{errorState.askedQuestions}</p> : null}
                     </div>
