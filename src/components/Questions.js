@@ -47,7 +47,7 @@ const Questions = () => {
     }, [formState])
 
     useEffect((item) => {
-    axios.get(`http://localhost:5800/questions`)
+    axios.get(`https://facts-right-now.herokuapp.com/questions`)
     .then(res => {
         // console.log('request', res)
         setQuestions(res.data)
