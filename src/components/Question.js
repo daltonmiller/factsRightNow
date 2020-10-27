@@ -63,7 +63,7 @@ const Question = ({question, id, answer, description, vote}) => {
             style="color:black"
             onClick="setColor('button', 'green')" />
             </form> */}
-            <h5 className="vote" style={{border: userVote === true ? "3px solid green" : "3px solid black"}} onClick={upVote, toggle}>⬆</h5>
+            <img className="vote" style={{border: userVote === true ? "3px solid green" : "3px solid black"}} onClick={upVote, toggle} src="https://img.icons8.com/ios-filled/2x/up.png"  />
             {/* <img  id="button" value="button"  className="vote" src="https://www.flaticon.com/svg/static/icons/svg/20/20901.svg" onClick={upVote}/> */}
              
             </div>
