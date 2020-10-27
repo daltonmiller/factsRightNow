@@ -69,7 +69,7 @@ const formSubmit = (e) => {
     e.preventDefault()
     console.log("form submitted")
     
-    axios.post('http://localhost:5800/asked', formState)
+    axios.post('https://facts-right-now.herokuapp.com/asked', formState)
     .then(res => {
         console.log(res.data)
         setAsk([...ask, res.data])
