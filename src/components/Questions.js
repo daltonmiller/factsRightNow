@@ -108,7 +108,7 @@ const formSubmit = (e) => {
                 <ToastsContainer position={ToastsContainerPosition.TOP_CENTER} store={ToastsStore} />
                 
                         
-                        {/* {errorState.askedQuestions ? <p>{errorState.askedQuestions}</p> : null} */}
+                        {/* {errorState.askedQuesdtions ? <p>{errorState.askedQuestions}</p> : null} */}
                     </div>
                 </label>
             
