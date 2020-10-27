@@ -3,11 +3,11 @@ import axios from 'axios'
 import Question from './Question'
 import * as yup from 'yup'
 import { ToastsContainer, ToastsStore, ToastsContainerPosition } from 'react-toasts';
-const formSchema = yup.object().shape({
-    askedQuestions: yup.string()
-    .min(10, "")
-    .required("Please Enter Question"),
-})
+// const formSchema = yup.object().shape({
+//     askedQuestions: yup.string()
+//     .min(10, "")
+//     .required("Please Enter Question"),
+// })
 
 
 const Questions = () => {
@@ -19,32 +19,32 @@ const Questions = () => {
         askedQuestions: "",
     })
 
-    const [errorState, setErrorState] = useState({
-        askedQuestions: ""
-    })
+    // const [errorState, setErrorState] = useState({
+    //     askedQuestions: ""
+    // })
     
-    const validate = (e) => {
-        yup.reach(formSchema, e.target.name).validate(e.target.value)
-        .then( valid => {
-            setErrorState({
-                ...errorState,
-                [e.target.name]: ""
-            })
-        })
-        .catch(err => {
-            console.log(err.errors)
-            setErrorState({
-                ...errorState,
-                [e.target.name]: err.errors[0]
-            })
-        })
-    }
+    // const validate = (e) => {
+    //     yup.reach(formSchema, e.target.name).validate(e.target.value)
+    //     .then( valid => {
+    //         setErrorState({
+    //             ...errorState,
+    //             [e.target.name]: ""
+    //         })
+    //     })
+    //     .catch(err => {
+    //         console.log(err.errors)
+    //         setErrorState({
+    //             ...errorState,
+    //             [e.target.name]: err.errors[0]
+    //         })
+    //     })
+    // }
 
-    useEffect(() => {
-        formSchema.isValid(formState).then(valid => {
-            setDisabled(!valid);
-            });
-    }, [formState])
+    // useEffect(() => {
+    //     formSchema.isValid(formState).then(valid => {
+    //         setDisabled(!valid);
+    //         });
+    // }, [formState])
 
     useEffect((item) => {
     axios.get(`https://facts-right-now.herokuapp.com/questions`)
@@ -60,7 +60,7 @@ const Questions = () => {
 
 const inputChange = e => {
     e.persist()
-    validate(e)
+    // validate(e)
     setFormState({...formState, [e.target.name]: e.target.value})
 }
 
@@ -108,7 +108,7 @@ const formSubmit = (e) => {
                 <ToastsContainer position={ToastsContainerPosition.TOP_CENTER} store={ToastsStore} />
                 
                         
-                        {errorState.askedQuestions ? <p>{errorState.askedQuestions}</p> : null}
+                        {/* {errorState.askedQuestions ? <p>{errorState.askedQuestions}</p> : null} */}
                     </div>
                 </label>
             
