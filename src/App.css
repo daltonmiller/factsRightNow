@@ -46,6 +46,9 @@
  display:flex;
  justify-content: flex-start;
 }
+.questionTop p {
+  margin-right: 5px;
+}
 .tanong {
   width: 80%;
   display: flex;
