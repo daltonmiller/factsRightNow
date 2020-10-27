@@ -95,8 +95,8 @@ color: green
 .answer {
   font-size: 1rem;
   border: 3px solid black;
-  width: 25px;
-  height: 25px;
+  min-width: 25px;
+  min-height: 25px;
   border-radius: 50%;
 display: flex;
 justify-content: center;
