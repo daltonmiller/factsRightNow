@@ -38,6 +38,7 @@
   margin: 1%;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  text-align: left;
 }
 .questionTop {
   display: flex;
@@ -47,7 +48,7 @@
  justify-content: flex-start;
 }
 .questionTop p {
-  margin-right: 5px;
+  margin-right: 7px;
 }
 .tanong {
   width: 80%;
@@ -70,13 +71,15 @@
 }
 
 .vote{
-  font-size: 1.2rem;
-  width: 25px;
-  height: 25px;
+  font-size: 1rem;
   border: 3px solid black;
   border-radius: 50%;
   margin-left: 5px;
-  padding: 3px;
+  margin-right: 8px;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 2px;
 }
 .vote:hover{
  border-color:  green;
@@ -104,13 +107,15 @@ color: green
 .answer {
   font-size: 1rem;
   border: 3px solid black;
-  min-width: 25px;
-  min-height: 25px;
   border-radius: 50%;
+  height: 20px;
+  min-width: 20px;
+  max-width: 20px;
 display: flex;
 justify-content: center;
 align-items: center;
-padding: 3px;
+padding: 5px;
+margin-left: 5px;
 }
 
 .description {
@@ -140,6 +145,16 @@ justify-content: flex-start;
   .questions {
     width: 100%;
   }
+  .votes {
+    height: 20px;
+    width: 20px;
+  }
+  .QuestionCard{
+    width: 100%;
+  }
+  .QuestionCard p {
+    font-size: 12px;
+  }
 }
 
 .inputBox{
@@ -159,4 +174,7 @@ align-items: center;
 }
 .titleTwo {
   color: #E74C3C;
+}
+.inputButton {
+  border: none;
 }

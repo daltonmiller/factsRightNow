@@ -8,14 +8,14 @@ const Question = ({question, id, answer, description, vote}) => {
     // let property = document.getElementsByClassName('answer')
   
         if (answer === 1){
-            answer = 'yes'
+            answer = 'Yes'
             // setColor()
             // property.style.color = 'green'
         }
         else if(answer === null){
             answer = '?'
         }else{
-            answer = 'no'
+            answer = 'No'
         }
 
     const upVote = (thisId) => {
@@ -24,7 +24,7 @@ const Question = ({question, id, answer, description, vote}) => {
             localStorage.setItem(`${thisId}`, true);
         }
         let plusOne = questionVotes
-        axios.put(`http://localhost:5800/questions/upvote/${thisId}`, {
+        axios.put(`https://facts-right-now.herokuapp.com/questions/upvote/${thisId}`, {
             votes: plusOne++
         })
         .then(res => {
@@ -51,7 +51,7 @@ const Question = ({question, id, answer, description, vote}) => {
             </p>  
             </div>
             <div className="buttons">
-            <h5 style={{ border: answer === 'yes' ? "3px solid green" : '3px solid red'}} className="answer">
+            <h5 style={{ border: answer === 'Yes' ? "3px solid green" : '3px solid red'}} className="answer">
             {answer}
             </h5>
             {/* <form>
@@ -62,7 +62,7 @@ const Question = ({question, id, answer, description, vote}) => {
             style="color:black"
             onClick="setColor('button', 'green')" />
             </form> */}
-            <button className="vote" onClick={() => upVote(id)} disabled={localStorage.getItem(`${id}`)}><img style={{border: localStorage.getItem(`${id}`) || userVote ? "3px solid green" : "3px solid black"}}  src="https://img.icons8.com/ios-filled/2x/up.png"  /></button>
+            <button className="vote" onClick={() => upVote(id)} disabled={localStorage.getItem(`${id}`) } style={{border: localStorage.getItem(`${id}`) || userVote ? "3px solid green" : "3px solid black"}} ><img src="https://img.icons8.com/ios-filled/2x/up.png"  /></button>
             {/* <img  id="button" value="button"  className="vote" src="https://www.flaticon.com/svg/static/icons/svg/20/20901.svg" onClick={upVote}/> */}
              
             </div>
@@ -70,9 +70,9 @@ const Question = ({question, id, answer, description, vote}) => {
             <p className="description">
             description: {description}
             </p>
-            <p className="votes">
+            {/* <p className="votes">
             votes: {questionVotes}
-            </p>
+            </p> */}
         </div>
     ) 
 }
