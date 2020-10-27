@@ -38,8 +38,6 @@
   margin: 1%;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-
-  
 }
 .questionTop {
   display: flex;
@@ -114,7 +112,7 @@ justify-content: flex-start;
 }
 
 .input{
-  width: 600px;
+  width: 400px;
   height: 70px;
   margin: 1%;
   font-size: 1.2rem;
