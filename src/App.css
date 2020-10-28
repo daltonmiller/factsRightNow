@@ -181,6 +181,12 @@ justify-content: flex-start;
   .QuestionCard p {
     font-size: 12px;
   }
+  .QuestionCardModal{
+    min-width: 95%;
+  }
+ /* .QuestionCardModal.vote{
+   margin-right: 20px;
+ } */
 }
 
 @media (max-width: 1350px) and (min-width: 800px) {
@@ -189,6 +195,9 @@ justify-content: flex-start;
   }
   .QuestionCard p{
     font-size: 12px;
+  }
+  .QuestionCardModal{
+    min-width: 45%;
   }
 
 }

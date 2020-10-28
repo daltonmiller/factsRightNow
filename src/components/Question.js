@@ -69,9 +69,9 @@ const Question = ({question, id, answer, description, vote}) => {
 
         <div className="QuestionCard">
 
-            <div onClick={openModal} className="questionTop">
+            <div className="questionTop">
 
-                <div className="tanong">
+                <div  onClick={openModal} className="tanong">
                     <p>
                     {question}
                     </p>  
